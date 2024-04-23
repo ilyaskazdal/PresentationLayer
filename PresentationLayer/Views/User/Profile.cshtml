@@ -1,0 +1,48 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Profile</h3>
+<br></br><br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Button</title>
+<style>
+  .green-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<a asp-action="CreateProduct" asp-controller="UserProduct" class="green-button">Add New Product</a>
+<br />
+<hr />
+    <a asp-action="UserProductList" asp-controller="UserProduct" class="green-button">My Products List</a>
+    <br />
+    <hr />
+    <!-- id null dönüyordu href /User/Update/atModel.UserId veya başka bir tip denediğimde bu şekilde düzeltilmiş halini bulup kullandım-->
+    <a class="green-button" href="/User/Update/@User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value">Edit Profile</a>
+    <hr />
+    <a asp-action="Messages" asp-controller="User" class="green-button">Messages</a>
+    <br />
+
+
+
+</body>
+</html>
+
+

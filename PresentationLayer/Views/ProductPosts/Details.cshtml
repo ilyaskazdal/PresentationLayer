@@ -1,0 +1,65 @@
+﻿@model ProductPost
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+    
+
+        <h1 class="h4 mb-4">@Model.ProductPostName</h1>
+        <p>Description: @Model.ProductPostDesccription</p>
+        <p>Publish Date: @Model.DateTime</p>
+    <p>UserName: @Model.User?.UserName</p>
+    <p>User Description: @Model.User?.UserDescription</p>
+    <p>UserEmail: @Model.User?.UserEmail</p>
+    <p>Sale: @if (Model.StillOnSale == true)
+        {
+        <p>✅</p>
+        }</p>
+
+    <br></br>
+        <div class="bg-white mt-3">
+            <div class="card-text border-0">
+                <div class="card-header pb-0">
+                    <h6>yorumlar ( @Model.Comments.Count() )</h6>
+                </div>
+                <div class="card-body">
+                    @foreach(var comment in Model.Comments){
+                    <div class="my-4 d-flex">
+                        <div class="mb-2">
+                            🙂
+                            <h5> @comment.User.UserName</h5>
+                            <span>Comment Date: @comment.CommentPublishDate</span>
+                        </div>
+
+                        <p>Comment: @comment.CommentText</p>
+                    </div>
+                    }
+                    <hr class="my-4">
+                    <div>
+                        <h4>Add Comment</h4>
+                        <form action="/ProductPosts/AddComment">
+                            <input type="hidden" name="PPId" value="@Model.ProductPostId">
+                           
+                        <div>
+                            <label for="UserName" class="form-label">Commnet</label>
+                            <textarea type="Text" name="CommentText" id="CommentText" rows="3" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-secondary">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    
+</body>
+
+
+
+

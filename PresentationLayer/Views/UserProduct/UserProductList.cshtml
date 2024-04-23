@@ -1,0 +1,27 @@
+﻿@model List<ProductPost>
+@{
+    ViewData["Title"] = "UserProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Your Products List</h3>
+@foreach (var product in Model)
+{
+    <hr></hr>
+    <tr>
+        <td>@product.ProductPostId</td>
+        <td>@product.ProductPostName</td>
+        <td>@product.ProductPostDesccription</td>
+        <td>@product.DateTime</td>
+        <td>@product.StillOnSale</td>
+        <td>
+            <a href="/UserProduct/EditProduct/@product.ProductPostId" class="btn btn-outline-secondary">Edit</a>
+
+            <a href="/ProductPosts/Delete/@product.ProductPostId" class="btn btn-outline-danger">Delete</a>
+
+        </td>
+
+    </tr>
+    
+}
+

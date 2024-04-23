@@ -1,0 +1,22 @@
+﻿@model DataAccessLayer.Entities.User
+@{
+    ViewData["Title"] = "RelatedInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Related Information";
+}
+
+<h3>@Model.UserName's Related Information</h3>
+
+<div>
+    <p>User ID: @Model.UserId</p>
+    <p>UserName: @Model.UserName</p>
+    <p>UserSurname: @Model.UserSurname</p>
+    <p>UserEMail: @Model.UserEmail</p>
+    <p>Checked By Admin: @Model.CheckedByAdmin</p>
+</div>
+

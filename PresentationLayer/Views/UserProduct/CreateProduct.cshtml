@@ -1,0 +1,33 @@
+﻿@model UserProductCreateViewModel
+
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1> Create Product </h1>
+        <br></br>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-controller="ProductPosts" asp-action="CreateProduct" method="post" novalidate>
+            <div class="mb-3">
+                <label asp-for="ProductPostName" class="form-label"></label>
+                <input asp-for="ProductPostName" class="form-control">
+                <span asp-validation-for="ProductPostName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ProductPostDescription" class="form-label"></label>
+                <textarea asp-for="ProductPostDescription" class="form-control"> </textarea>
+                <span asp-validation-for="ProductPostDescription" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+
+        </form>
+    </div>
+
+
+
+</div>
+

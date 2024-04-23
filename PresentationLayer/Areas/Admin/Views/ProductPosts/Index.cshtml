@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DataAccessLayer.Entities.ProductPost>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPostId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPostName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPostDesccription)
+                </th>
+              
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Categories)
+                </th>
+
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.StillOnSale)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPostId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPostName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPostDesccription)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categories)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StillOnSale)
+                    </td>
+
+                 
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductPostId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductPostId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

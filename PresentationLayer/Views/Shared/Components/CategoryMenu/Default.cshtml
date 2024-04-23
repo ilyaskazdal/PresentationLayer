@@ -1,0 +1,35 @@
+﻿@model List<Category>
+
+<style>
+    /* Basic styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Layout container */
+    .container {
+        display: flex;
+    }
+
+    /* Left sidebar styles */
+    .sidebar {
+        width: 200px; /* Adjust as needed */
+        background-color: #f4f4f4;
+        padding: 15px;
+    }
+
+    
+   
+</style>
+<div class="sidebar">
+    <h4>Categories</h4>
+    @foreach (var category in Model)
+    {
+        <li class="list-inline-item">
+            <a asp-action="Categories" asp-controller="ProductPosts" asp-route-id="@category.CategoryId" class="btn btn-outline-success btn-sm">@category.CategoryName</a>
+        </li>
+
+    }
+</div>

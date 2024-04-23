@@ -1,0 +1,29 @@
+﻿@model ProfileMessageViewModel
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Profile</h1>
+
+<div>
+    <h2>Welcome, @Model.User.UserName!</h2>
+    <!-- Display user details -->
+    <p>Email: @Model.User.UserEmail</p>
+    <!-- Display other user details as needed -->
+    <!-- Display received messages -->
+    <h3>Received Messages</h3>
+    <ul>
+        @foreach (var message in Model.ReceivedMessages)
+        {
+            <li>
+                <p>From: @message.MessageSender.UserName</p>
+                <p>Senders ID: @message.MessageSenderId</p>
+                <p>Content: @message.MessageContent</p>
+                <p>Timestamp: @message.MessageDateTime</p>
+            </li>
+        }
+    </ul>
+</div>
+
